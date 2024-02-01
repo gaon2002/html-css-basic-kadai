@@ -1,0 +1,87 @@
+@charset "utf=8";
+
+/* 上部： */
+#top{
+  width: 800px;
+  background-color: #dcc9f4;
+  /* 上下：20px、左右：中央揃え */
+  margin: 20px auto;
+  /* 中にある<p>要素(インライン)を中央揃えにする */
+  text-align: center;
+}
+.top-child{
+  width: 20%;
+  background-color: #ffd9df;
+  display: inline-block;
+}
+
+/* 中央部： */
+#middle{
+  /* 子要素"middle-child"と"relative"で紐付け⇒子："absolute" */
+  position: relative;
+  width: 800px;
+  height: 800px;
+  /* 上下：20px(topマージンも20pxなので相殺される、左右：中央揃え */
+  margin: 20px auto;
+  background-color: #ffd9df;
+}
+#middle-child1{
+  width: 200px;
+  height: 200px;
+  background-color: #87ceed;
+  /*親要素"middle"からの位置指定 */
+  position: absolute;
+    left: 100px;
+    top: 100px;
+}
+#middle-child2{
+  width: 200px;
+  height: 200px;
+  background-color: #87ceed;
+  position: absolute;
+    left: 300px;
+    top: 300px;
+}
+#middle-child3{
+  width: 200px;
+  height: 200px;
+  background-color: #87ceed;
+  position: absolute;
+    left: 500px;
+    top: 500px;
+}
+
+/* 下部： */
+#bottom{
+  /* 子要素"bottom-child"と"relative"で紐付け⇒子："absolute" */
+  position: relative;
+  width: 800px;
+  height: 300px;
+  /* 中央揃え */
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #87ceed;
+}
+#bottom-child1{
+  width: 400px;
+  height: 100px;
+  background-color: #e5dcf0;
+}
+#bottom-child2{
+  width: 400px;
+  height: 100px;
+  background-color: #e5dcf0;
+  /*親要素"bottom"からの位置指定 */
+  position: absolute;
+    left: 200px;
+  /* 上下位置指定は不要？ (<div>の初期値はblock)*/
+}
+#bottom-child3{
+  width: 400px;
+  height: 100px;
+  background-color: #e5dcf0;
+  position: absolute;
+    left: 400px;
+    /* <div>の初期値はblockだから、上下指定はいらないはずでは？ */
+    bottom: 0px;
+}
