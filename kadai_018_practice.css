@@ -1,0 +1,84 @@
+@charset "utf-8";
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  width: 800px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+/* Upper */
+#upper{
+  background-color: darkturquoise;
+  display: flex;
+    justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  /* ブラウザのマージン、パディングを無効にしているため、高さを設定 */
+  height: 50px;
+}
+#upper > p{
+  /* 各ボックス800px x 20% (160px) にする */
+  width: 20%;
+  height: 30px;
+  /* ボックスと同じ高さにすれば、文字は高さ方向に中央に配置される */
+  line-height: 30px;
+  background-color: brown;
+  text-align: center;
+}
+/* 2個目のボックスへの指示(忘れている) */
+#upper p:nth-of-type(2){
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* 中央部 */
+#middle{
+  background-color: aquamarine;
+  padding: 100px;
+  height: 800px;
+  margin-bottom: 20px;
+  /* 高さ800pxのBOXに対してpadding100pxを設定すると全体の高さは900pxになる
+    それを回避するためにbox-sizingコマンドを使用して、元の高さになるように指示 */
+  box-sizing: border-box;
+}
+#middle > div{
+  background-color: tomato;
+  width: 200px;
+  height: 200px;
+}
+#middle > div:nth-of-type(1){
+  margin-left: 0;
+}
+#middle > div:nth-of-type(2){
+  margin-left: 200px
+}
+#middle > div:nth-of-type(3){
+  margin-left: 400px;
+  /* float: right; */
+}
+
+/* 下部 */
+#bottom{
+  background-color: burlywood;
+  margin-bottom: 20px;
+  height: 300px;
+}
+#bottom > div{
+  background-color: blue;
+  width: 400px;
+  height: 100px;
+}
+#bottom > div:nth-of-type(2){
+  margin-left: 200px;
+}
+#bottom > div:nth-of-type(3){
+  margin-left: 400px;
+  /* float: right;でも可能 */
+}
+
+

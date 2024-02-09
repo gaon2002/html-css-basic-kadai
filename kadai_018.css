@@ -1,0 +1,100 @@
+@charset "utf=8";
+/*
+  現在の多くはリセットCSSを使用しているが、最低でもグローバルセレクタにて
+  ブラウザの設定しているマージンとパディングを無効にした方が、レイアウトしやすくなる
+*/
+*{
+  margin: 0;
+  padding: 0;
+}
+/*
+  表示する部分が一律である場合、あらかじめbodyに幅を指定すると
+  各部品に幅指定が不要となる。
+  また、表示部を中央に寄せたい場合は、bodyにmargin:0 auot;を
+  入れることで表示部全体を中央に配置できる。
+*/
+body {
+  width: 800px;
+  margin: 0 auto;
+  /* 
+    margin-topでも良いが、以前、ブラウザによっては、全体の背景色を
+    bodyに指定した場合、margin-topだとそのマージン分背景色が適応されなかった
+    経緯があったため、あえてpaddin-topを使用している。
+  */
+  padding-top: 20px;
+}
+/* 上部： */
+#top{
+  /* 教材の後半で説明のあるFlex boxを使用している */
+  display: flex;
+  justify-content: center;
+  /* ブラウザのマージン、パディングを無効にしているため、高さを設定 */
+  height: 50px;
+  /* 縦に並べるボックスはmargin-bottomにて余白をとりましょう。 */
+  margin-bottom: 20px;
+  background-color: #dcc9f4;
+  /* 教材には記載されていないが、ブロック要素を縦に配置できるプロパティ(今後 主流に) */
+  align-items: center;
+}
+#top p{
+  width: 20%;
+  height: 30px;
+  background-color: #ffd9df;
+  text-align: center;
+  /* 
+    ボックスの高さを同じサイズを指定することで、ボックスの縦位置中央に文字が
+    配置されます。
+  */
+  line-height: 30px;
+}
+#top p:nth-of-type(2) {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+/* 中央部： */
+#middle{
+  height: 800px;
+  margin-bottom: 20px;
+  padding-top: 100px;
+  background-color: #ffd9df;
+  /*
+    高さ:800pxのボックスに対し、padding-top: 100px;を設定すると
+    ボックスの大きさが800px + 100px = 900pxと大きくなってしまう。
+    ボックスの高さを800pxの状態を保持したい場合は、box-sizing: border-box;
+    を使用するとボックスの大きさを保持できる。(幅も同じ)
+  */
+  box-sizing: border-box;
+}
+#middle div {
+  width: 200px;
+  height: 200px;
+  background-color: #87ceed;
+}
+#middle div:first-of-type{
+  margin-left: 100px;
+}
+#middle div:nth-of-type(2){
+  margin-left: 300px;
+}
+#middle div:last-of-type{
+  margin-left: 500px;
+}
+
+/* 下部： */
+#bottom{
+  margin-bottom: 20px;
+  height: 300px;
+  background-color: #87ceed;
+}
+#bottom div {
+  width: 400px;
+  height: 100px;
+  background-color: #e5dcf0;
+}
+#bottom div:nth-of-type(2){
+  margin-left: 200px;
+}
+#bottom div:last-of-type{
+  margin-left: 400px;
+}
